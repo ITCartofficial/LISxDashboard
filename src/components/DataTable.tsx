@@ -58,7 +58,7 @@ export function DataTable({ data }: DataTableProps) {
                   <td className="px-6 py-4 text-sm">
                     <div className={`flex items-center gap-1 ${isPositiveRate ? 'text-green-600' : 'text-red-600'}`}>
                       {isPositiveRate ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
-                      <span className="font-medium">{(((row.likes + row.comments + row.shares) / row.impressions) * 100).toFixed(1)} %</span>
+                      <span className="font-medium">{row.impressions === 0 ? '0' : (((row.likes + row.comments + row.shares) / row.impressions) * 100).toFixed(1)} %</span>
                     </div>
                   </td>
                 </tr>
