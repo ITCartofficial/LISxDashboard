@@ -50,7 +50,6 @@ interface PostsResponse {
   total_engagements: number;
   total_impressions: number;
   email_contacted: number;
-  engagement_rate: number;
   all_posts: Post[];
 }
 
@@ -78,7 +77,6 @@ function App() {
     total_engagements: 0,
     total_impressions: 0,
     email_contacted: 0,
-    engagement_rate: 0,
     all_posts: [],
   });
 
@@ -134,7 +132,6 @@ function App() {
         total_engagements: 0,
         total_impressions: 0,
         email_contacted: 0,
-        engagement_rate: 0,
         all_posts: [],
       });
     }
