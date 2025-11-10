@@ -186,7 +186,7 @@ function App() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">
-              LIS Social Media Performance Dashboard
+              LIS x iTCart Social Media Performance Dashboard
             </h1>
             <p className="text-gray-600 mt-1">
               Life Insurance Settlements Inc. - Analytics & Insights
@@ -225,28 +225,28 @@ function App() {
             <MetricCard
               title="Total Engagement"
               value={dashboardData?.total_engagements.toLocaleString()}
-              change={2.4}
+              change={dashboardData?.total_engagements ? 2.4 : 0}
               icon={<TrendingUp className="w-5 h-5 text-red-500" />}
               iconBgColor="bg-red-50"
             />
             <MetricCard
               title="Total Likes"
               value={dashboardData?.total_likes.toLocaleString()}
-              change={3.1}
+              change={dashboardData?.total_likes ? 3.1 : 0}
               icon={<Heart className="w-5 h-5 text-green-500" />}
               iconBgColor="bg-green-50"
             />
             <MetricCard
               title="Total Impression"
               value={dashboardData?.total_impressions.toLocaleString()}
-              change={4.4}
+              change={dashboardData?.total_impressions ? 4.4 : 0}
               icon={<Eye className="w-5 h-5 text-blue-500" />}
               iconBgColor="bg-blue-50"
             />
             <MetricCard
               title="Email Contacted"
               value={dashboardData?.email_contacted.toLocaleString()}
-              change={1.8}
+              change={dashboardData?.email_contacted ? 1.8 : 0}
               icon={<Mail className="w-5 h-5 text-orange-500" />}
               iconBgColor="bg-orange-50"
             />
@@ -355,7 +355,7 @@ function App() {
                 />
               </div>
             </div>
-            <DataTable data={dashboardData.all_posts} />
+            <DataTable data={dashboardData.all_posts.slice().reverse()} />
           </div>
         </div>
       </main>
