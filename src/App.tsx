@@ -244,7 +244,7 @@ function App() {
               iconBgColor="bg-blue-50"
             />
             <MetricCard
-              title="Email Contacted"
+              title="Lead Generated"
               value={dashboardData?.email_contacted.toLocaleString()}
               change={dashboardData?.email_contacted ? 1.8 : 0}
               icon={<Mail className="w-5 h-5 text-orange-500" />}
