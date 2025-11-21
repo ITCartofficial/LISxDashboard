@@ -6,6 +6,25 @@ interface DataTableProps {
 }
 
 export function DataTable({ data }: DataTableProps) {
+  const posts: Post[] = [];
+  posts.push(...data);
+  const adPost: Post = {
+    tag: "https://www.linkedin.com/feed/update/urn:li:activity:7396172492517629952/",
+    postUrl:
+      "https://www.linkedin.com/feed/update/urn:li:activity:7396172492517629952/",
+    likes: 23,
+    comments: 0,
+    shares: 10,
+    impressions: 9956,
+    content: "Sponsored: Check out our latest product launch!",
+    isApproved: true,
+    platform: "LinkedIn",
+    postedAt: "2024-06-15T10:00:00Z",
+    visual: ""
+  };
+
+  posts.push(adPost);
+  data = posts;
   return (
     <div className="bg-white rounded-lg shadow overflow-hidden">
       <div className="overflow-x-auto">

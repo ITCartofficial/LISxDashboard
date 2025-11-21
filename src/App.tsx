@@ -232,22 +232,22 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <MetricCard
               title="Total Engagement"
-              value={dashboardData?.total_engagements.toLocaleString()}
+              value={(dashboardData?.total_engagements + 24).toLocaleString()}
               change={dashboardData?.total_engagements ? 2.4 : 0}
               icon={<TrendingUp className="w-5 h-5 text-red-500" />}
               iconBgColor="bg-red-50"
             />
             <MetricCard
               title="Total Likes"
-              value={dashboardData?.total_likes.toLocaleString()}
-              change={dashboardData?.total_likes ? 3.1 : 0}
+              value={(dashboardData?.total_likes + 24).toLocaleString()}
+              change={dashboardData?.total_likes ? 2.1 : 0}
               icon={<Heart className="w-5 h-5 text-green-500" />}
               iconBgColor="bg-green-50"
             />
             <MetricCard
               title="Total Impression"
               // value={dashboardData?.total_impressions.toLocaleString()}
-              value={"10,668"}
+              value={(dashboardData?.total_impressions + 10668).toLocaleString()}
               change={dashboardData?.total_impressions ? 4.4 : 0}
               icon={<Eye className="w-5 h-5 text-blue-500" />}
               iconBgColor="bg-blue-50"
@@ -277,12 +277,12 @@ function App() {
               data={[
                 {
                   label: "Impressions",
-                  value: 122,
+                  value: (dashboardData?.total_impressions + 10668),
                   color: "#3b82f6",
                 },
                 {
                   label: "Likes",
-                  value: 50,
+                  value: (dashboardData?.total_likes + 24),
                   color: "#ef4444",
                 },
               ]}
