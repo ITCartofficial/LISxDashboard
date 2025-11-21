@@ -247,7 +247,7 @@ function App() {
             <MetricCard
               title="Total Impression"
               // value={dashboardData?.total_impressions.toLocaleString()}
-              value={"1455"}
+              value={"10,668"}
               change={dashboardData?.total_impressions ? 4.4 : 0}
               icon={<Eye className="w-5 h-5 text-blue-500" />}
               iconBgColor="bg-blue-50"
