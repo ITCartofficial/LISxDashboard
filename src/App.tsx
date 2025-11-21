@@ -110,6 +110,21 @@ function App() {
 
   const tabs = ["LinkedIn", "Instagram", "Facebook", "Telegram"];
 
+  const adPost: Post = {
+    tag: "https://www.linkedin.com/feed/update/urn:li:activity:7396172492517629952/",
+    postUrl:
+      "https://www.linkedin.com/feed/update/urn:li:activity:7396172492517629952/",
+    likes: 23,
+    comments: 0,
+    shares: 10,
+    impressions: 9956,
+    content: "Sponsored: Check out our latest product launch!",
+    isApproved: true,
+    platform: "LinkedIn",
+    postedAt: "2024-06-15T10:00:00Z",
+    visual: ""
+  };
+
   useEffect(() => {
     const fetchTabData = async () => {
       try {
@@ -123,7 +138,7 @@ function App() {
           total_engagements: res.data.totalEngagements,
           total_impressions: res.data.totalImpressions,
           email_contacted: res.data.totalEmails,
-          all_posts: res.data.posts,
+          all_posts: [adPost, ...res.data.posts],
         };
         setDashboardData(dashboardData);
         // setDashboardData(res.data);
@@ -365,7 +380,7 @@ function App() {
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-lg font-semibold text-gray-900">
-                Post Performance Detail
+                Post Performance Details
               </h2>
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
