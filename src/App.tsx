@@ -18,7 +18,7 @@ import { AreaChart } from "./components/AreaChart";
 import { DataTable } from "./components/DataTable";
 import axios from "axios";
 
-const SERVER_URL = "http://localhost:5000";
+const SERVER_URL = "http://localhost:3000";
 
 // interface MetricsSummary {
 //   total_engagement: number;
@@ -113,12 +113,20 @@ function App() {
   useEffect(() => {
     const fetchTabData = async () => {
       try {
-        const res = await axios.get(`${SERVER_URL}/api/dashboard/metrics`);
+        const res = await axios.get(`${SERVER_URL}/analytics/weekly`);
         if (!res) {
           throw new Error("No response from server");
         }
-        // console.log(res.data);
-        setDashboardData(res.data);
+        console.log(res.data);
+        const dashboardData: PostsResponse = {
+          total_likes: res.data.totalLikes,
+          total_engagements: res.data.totalEngagements,
+          total_impressions: res.data.totalImpressions,
+          email_contacted: res.data.totalEmails,
+          all_posts: res.data.posts,
+        };
+        setDashboardData(dashboardData);
+        // setDashboardData(res.data);
       } catch (error) {
         console.error(error);
       }
@@ -194,7 +202,7 @@ function App() {
           </div>
           <div className="flex items-center gap-4">
             <button className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-              <span className="text-sm text-gray-700">Last 30 Days</span>
+              <span className="text-sm text-gray-700">Last 7 Days</span>
               <ChevronDown className="w-4 h-4 text-gray-400" />
             </button>
             <button className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
@@ -244,7 +252,7 @@ function App() {
               iconBgColor="bg-blue-50"
             />
             <MetricCard
-              title="Lead Generated"
+              title="Email Contacted"
               value={dashboardData?.email_contacted.toLocaleString()}
               change={dashboardData?.email_contacted ? 1.8 : 0}
               icon={<Mail className="w-5 h-5 text-orange-500" />}
@@ -268,15 +276,27 @@ function App() {
               data={[
                 {
                   label: "Impressions",
-                  value: dashboardData ? dashboardData?.total_impressions : 0,
+                  value: 122,
                   color: "#3b82f6",
                 },
                 {
                   label: "Likes",
-                  value: dashboardData ? dashboardData?.total_likes : 0,
+                  value: 50,
                   color: "#ef4444",
                 },
               ]}
+              // data={[
+              //   {
+              //     label: "Impressions",
+              //     value: dashboardData ? dashboardData?.total_impressions : 122,
+              //     color: "#3b82f6",
+              //   },
+              //   {
+              //     label: "Likes",
+              //     value: dashboardData ? dashboardData?.total_likes : 50,
+              //     color: "#ef4444",
+              //   },
+              // ]}
             />
           </div>
 
