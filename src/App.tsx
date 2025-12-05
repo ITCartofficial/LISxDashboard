@@ -18,7 +18,7 @@ import { AreaChart } from "./components/AreaChart";
 import { DataTable } from "./components/DataTable";
 import axios from "axios";
 
-const SERVER_URL = "http://localhost:3000";
+const SERVER_URL = "http://74.225.249.89:3000";
 
 // interface MetricsSummary {
 //   total_engagement: number;
