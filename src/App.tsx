@@ -124,6 +124,7 @@ function App() {
     postedAt: "2024-06-15T10:00:00Z",
     visual: ""
   };
+  // const res = await axios.get(`${SERVER_URL}/analytics/weekly`);
 
   useEffect(() => {
     const fetchTabData = async () => {
@@ -132,7 +133,7 @@ function App() {
         if (!res) {
           throw new Error("No response from server");
         }
-        console.log(res.data);
+        console.log("data:",res.data);
         const dashboardData: PostsResponse = {
           total_likes: res.data.totalLikes,
           total_engagements: res.data.totalEngagements,
